@@ -55,15 +55,6 @@ def load_setting():
     return clients, client_report_dict
 
 
-def run_process(clients, report_date, output_path, reports):
-    with ThreadPoolExecutor(max_workers=2) as executor:
-        for client in clients:
-            results = executor.submit(download_dash, report_date, output_path, client, reports)
-
-        # for result in results:
-        #     print(result)
-
-
 def run_gui(thread=None):
     clients, client_report_dict = load_setting()
     default_client = clients[0]
@@ -149,25 +140,6 @@ def run_gui(thread=None):
             window['status'].print('Dash Report Download Processing...\n')
             window['report_download'].Update(disabled=True)
             window['summary'].Update(disabled=True)
-
-
-            # run_process(clients, report_date, output_path, reports)
-            # # manager = multiprocessing.Manager()
-            # # return_dict = manager.dict()
-            # jobs = []
-            #
-            #
-            #
-            # # for client in clients:
-            # #
-            # #     p = multiprocessing.Process(target=download_dash,
-            # #                                 args=(report_date, output_path, client, reports))
-            # #     jobs.append(p)
-            # #     p.start()
-            # #
-            # # for proc in jobs:
-            # #     proc.join()
-            # # print(return_dict.values())
 
             for client in clients:
                 thread = threading.Thread(target=download_dash,

@@ -21,7 +21,31 @@
 #         window.refresh()
 
 
+# run_process(clients, report_date, output_path, reports)
+# # manager = multiprocessing.Manager()
+# # return_dict = manager.dict()
+# jobs = []
+#
+#
+#
+# # for client in clients:
+# #
+# #     p = multiprocessing.Process(target=download_dash,
+# #                                 args=(report_date, output_path, client, reports))
+# #     jobs.append(p)
+# #     p.start()
+# #
+# # for proc in jobs:
+# #     proc.join()
+# # print(return_dict.values())
 
 
-
-
+#
+# def run_process(clients, report_date, output_path, reports):
+#     with ThreadPoolExecutor(max_workers=2) as executor:
+#         for client in clients:
+#             results = executor.submit(download_dash, report_date, output_path, client, reports)
+#
+#         # for result in results:
+#         #     print(result)
+#
